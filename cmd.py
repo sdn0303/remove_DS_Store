@@ -19,5 +19,5 @@ if __name__ == "__main__":
     for file_path in file_iterator(root_dir='.'):
         if ".DS_Store" in file_path:
             os.remove(file_path)
-        else:
-            print("Directory is clean.")
+            print('{} was deleted.'.format(file_path))
+    print('Directory is clean.')
