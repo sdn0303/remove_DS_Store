@@ -11,13 +11,16 @@ def file_iterator(root_dir: str) -> str:
         for file in files:
             yield os.path.join(path, file)
 
+            
+def main():
+    return (file_path for file_path in file_iterator(root_dir='.') if ".DS_Store" in file_path)
 
 if __name__ == "__main__":
     """ ディレクトリ内に
     .DS_Storeが存在したら削除する。
     """
-    for file_path in file_iterator(root_dir='.'):
-        if ".DS_Store" in file_path:
-            os.remove(file_path)
-            print('{} was deleted.'.format(file_path))
+
+    for f in main():
+        os.remove(f)
+        print('{} was deleted.'.format(f))
     print('Directory is clean.')
